@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五子棋對戰遊戲</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>五子棋對戰遊戲</h1>
+        <div class="menu" id="menu">
+            <div class="input-group">
+                <label for="playerName">玩家名稱：</label>
+                <input type="text" id="playerName" placeholder="請輸入你的名稱" maxlength="10">
+            </div>
+            <div class="button-group">
+                <button id="createRoomBtn" class="btn btn-primary">創建房間</button>
+                <button id="joinRoomBtn" class="btn btn-secondary">加入房間</button>
+            </div>
+            <div class="input-group" id="roomIdGroup" style="display: none;">
+                <label for="roomId">房間號：</label>
+                <input type="text" id="roomId" placeholder="請輸入房間號" maxlength="6">
+                <button id="confirmJoinBtn" class="btn btn-success">確認加入</button>
+            </div>
+        </div>
+        <div class="game-area" id="gameArea" style="display: none;">
+            <div class="game-info">
+                <div class="room-info">
+                    <span>房間號：<span id="currentRoomId"></span></span>
+                </div>
+                <div class="players-info">
+                    <div class="player" id="player0">
+                        <span class="player-name"></span>
+                        <span class="player-symbol">●</span>
+                    </div>
+                    <div class="player" id="player1">
+                        <span class="player-name"></span>
+                        <span class="player-symbol">○</span>
+                    </div>
+                </div>
+                <div class="game-status">
+                    <span id="gameStatus">等待玩家加入...</span>
+                </div>
+            </div>
+            <div class="board-container">
+                <canvas id="gameBoard" width="600" height="600"></canvas>
+            </div>
+            <div class="game-controls">
+                <button id="restartBtn" class="btn btn-warning" style="display: none;">重新開始</button>
+                <button id="backToMenuBtn" class="btn btn-secondary">返回主選單</button>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
